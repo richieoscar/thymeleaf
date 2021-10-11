@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="header">USERS LIST</div>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.id}"></td>
+        <td th:text="${user.name}"></td>
+        <td th:text="${user.age}"></td>
+    </tr>
+    </tbody>
+</table>
+<h3> Thymeleaf Scope</h3>
+ Request : <span th:text="${#httpServletRequest.getAttribute('request')}"></span>
+<h2>Thymeleaf URls</h2>
+<!-- navigate to page without parameter-->
+<a th:href="@{/demo}">Visit Demo Page</a><br/>
+<!-- navigate to page without parameter-->
+<a th:href="@{/demo(id=1, name=Oscar)}">Visit Demo Page with Parameters</a>
+
+</body>
+</html>

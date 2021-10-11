@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaft Demo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="header">
+    <h1 class="pad"> Score Sheet</h1>
+</div>
+<h1 th:text="${message}"></h1>
+<h3>Exam Results</h3>
+<div th:each="course : ${courses}">
+    <li th:text="${course.name}"></li>
+</div>
+<div th:if="${grade} >=60">
+    You passed the Exam
+
+    <div th:switch="${GPA}">
+        <span th:case="A">Excellent Grade = A</span>
+        <span th:case="B"> Very Good Grade = B</span>
+        <span th:case="C"> good Grade = C</span>
+        <span th:case="D"> Fair</span>
+
+    </div>
+</div>
+<div th:if="${grade} < 60">Yoy Failed Wolfly the Exam</div>
+<a href="/demo2">See users Her</a>
+
+</body>
+</html>
